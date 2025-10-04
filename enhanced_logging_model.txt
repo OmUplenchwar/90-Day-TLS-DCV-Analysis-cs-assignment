@@ -1,0 +1,14 @@
+# Proposed Enhanced Revocation Logging Model
+## Addressing the 33.78% 'unspecified' revocation gap (Figure 3 in the paper)
+
+This model suggests mandatory, detailed revocation categories for Certificate Authorities (CAs) to provide better security intelligence:
+
+| Code | Proposed Revocation Category | Rationale/Security Implication |
+| :--- | :--- | :--- |
+| **0 - UNSPECIFIED** | UNSPECIFIED (WITH MANDATORY JUSTIFICATION) | **Residual Category ONLY (Target <5%).** Must be accompanied by a free-text, mandatory justification by the CA. |
+| **9 - CESSATIONOFOPERATION** | Cessation of Operation (Unchanged) | The domain/service ceased to exist. |
+| **10 - AFFILIATIONCHANGED** | Affiliation Changed (Unchanged) | Organizational restructure or transfer of assets. |
+| **11 - KEYCOMPROMISE** | Key Compromise (Unchanged) | Private key is suspected to be compromised (Critical). |
+| **12 - CA_MISISSUANCE** | CA Process Error/Misissuance | CA error in validation or issuance (Must be tracked for accountability). |
+| **13 - SUBSCRIBER_ERROR** | Subscriber Configuration Error | Revoked due to weak key, failed renewal, or system misconfiguration (e.g., failed automation). |
+| **14 - DOMAIN_EXPIRED** | Domain Ownership Expired/Lost | Explicitly marks loss of DCV, highly relevant to 90-day cycle analysis. |
